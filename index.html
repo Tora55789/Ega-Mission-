@@ -123,82 +123,78 @@
             background: linear-gradient(135deg, rgba(30, 35, 60, 0.4) 0%, rgba(42, 47, 72, 0.3) 100%);
             border: 1px solid rgba(255, 107, 107, 0.1);
             border-radius: 16px;
-        }
-
-        .filter-group {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            align-items: center;
+            backdrop-filter: blur(10px);
         }
 
         .filter-label {
             font-size: 0.85em;
-            color: var(--text-secondary);
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
         }
 
         .filter-btn {
             padding: 8px 14px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(108, 92, 231, 0.3);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 107, 107, 0.2);
             color: var(--text-secondary);
             border-radius: 8px;
             cursor: pointer;
+            font-weight: 600;
             font-size: 0.75em;
-            transition: all 0.2s;
-            white-space: nowrap;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            font-family: 'Sora', sans-serif;
         }
 
         .filter-btn:hover, .filter-btn.active {
-            background: rgba(108, 92, 231, 0.3);
-            border-color: var(--secondary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-color: var(--primary);
             color: white;
         }
 
-        .search-container {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        #searchInput {
-            flex: 1;
+        .search-box {
+            width: 100%;
             padding: 12px 16px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 107, 107, 0.2);
-            border-radius: 12px;
+            border-radius: 10px;
             color: var(--text-primary);
-            font-size: 0.9em;
+            font-family: 'Sora', sans-serif;
+            margin-bottom: 16px;
         }
 
-        #searchInput::placeholder {
-            color: var(--text-secondary);
-        }
-
-        #searchInput:focus {
+        .search-box:focus {
             outline: none;
             border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 107, 107, 0.08);
         }
 
         .missions-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 24px;
-            margin-bottom: 40px;
         }
 
         .mission-card {
-            background: linear-gradient(135deg, rgba(30, 35, 60, 0.5) 0%, rgba(42, 47, 72, 0.4) 100%);
-            border: 1px solid rgba(255, 107, 107, 0.15);
+            background: linear-gradient(135deg, rgba(30, 35, 60, 0.6) 0%, rgba(42, 47, 72, 0.4) 100%);
+            backdrop-filter: blur(15px);
+            border: 1.5px solid rgba(255, 255, 255, 0.05);
             border-radius: 14px;
             padding: 24px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
         }
 
         .mission-card::before {
@@ -207,106 +203,92 @@
             top: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.3s;
+            height: 2px;
+            background: linear-gradient(90deg, currentColor, transparent);
+            opacity: 0.6;
         }
 
         .mission-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-10px);
             border-color: currentColor;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .mission-card:hover::before {
-            opacity: 1;
+            box-shadow: 0 30px 60px rgba(255, 107, 107, 0.15);
         }
 
         .mission-rank {
             display: inline-block;
             padding: 6px 12px;
-            background: rgba(255, 107, 107, 0.15);
-            border: 1px solid currentColor;
-            border-radius: 6px;
-            font-size: 0.75em;
+            border-radius: 8px;
             font-weight: 700;
+            font-size: 0.75em;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid currentColor;
             margin-bottom: 12px;
         }
 
         .mission-enemies {
             display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
             flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 16px;
         }
 
         .enemy-tag {
-            display: inline-block;
-            padding: 4px 10px;
+            padding: 4px 8px;
             background: rgba(108, 92, 231, 0.2);
-            border: 1px solid rgba(108, 92, 231, 0.4);
-            border-radius: 4px;
+            border-radius: 6px;
             font-size: 0.7em;
-            color: var(--text-secondary);
+            color: #c7d2fe;
+            font-weight: 600;
         }
 
         .mission-title {
-            font-size: 1.3em;
+            font-size: 1.2em;
             font-weight: 700;
-            margin-bottom: 10px;
-            color: currentColor;
+            margin-bottom: 8px;
+            line-height: 1.3;
         }
 
         .mission-description {
-            font-size: 0.9em;
             color: var(--text-secondary);
-            margin-bottom: 16px;
+            font-size: 0.85em;
             line-height: 1.5;
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .reward-badge {
-            display: inline-block;
-            padding: 8px 14px;
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(16, 185, 129, 0.1) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(251, 191, 36, 0.05) 100%);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            padding: 12px;
             border-radius: 8px;
-            font-size: 0.85em;
-            font-weight: 600;
-            color: var(--success);
-            margin-bottom: 16px;
+            font-weight: 700;
+            color: #fcd34d;
+            text-align: center;
+            margin-bottom: 12px;
+            font-size: 1em;
         }
 
         .btn-view {
             width: 100%;
-            padding: 12px;
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(108, 92, 231, 0.2) 100%);
-            border: 1px solid rgba(255, 107, 107, 0.3);
-            color: var(--text-primary);
-            border-radius: 10px;
-            font-weight: 600;
+            padding: 10px;
+            background: linear-gradient(135deg, currentColor 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
+            font-weight: 700;
+            font-size: 0.8em;
+            text-transform: uppercase;
             transition: all 0.3s;
-            font-size: 0.85em;
         }
 
         .btn-view:hover {
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.4) 0%, rgba(108, 92, 231, 0.4) 100%);
             transform: translateY(-2px);
-        }
-
-        .mission-count {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--text-secondary);
-            font-size: 0.9em;
-        }
-
-        .mission-count strong {
-            color: var(--primary);
-            font-size: 1.2em;
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.2);
         }
 
         .modal {
@@ -316,155 +298,128 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(10, 14, 39, 0.8);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
             z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s;
         }
 
         .modal.active {
             display: flex;
-            opacity: 1;
+            align-items: center;
+            justify-content: center;
         }
 
         .modal-content {
-            background: linear-gradient(135deg, #1a1f3a 0%, #141829 100%);
+            background: linear-gradient(135deg, rgba(30, 35, 60, 0.95) 0%, rgba(42, 47, 72, 0.90) 100%);
             border: 1px solid rgba(255, 107, 107, 0.2);
             border-radius: 16px;
             padding: 40px;
-            max-width: 600px;
+            max-width: 750px;
             width: 90%;
-            max-height: 90vh;
+            max-height: 85vh;
             overflow-y: auto;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+            position: relative;
         }
 
-        .modal-header {
-            margin-bottom: 24px;
+        .modal-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--text-secondary);
+            font-size: 2em;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 107, 107, 0.2);
+            color: var(--primary);
         }
 
         .modal-title {
             font-size: 2em;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .modal-enemies {
-            color: var(--text-secondary);
-            font-size: 0.9em;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
         .modal-section {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .modal-section-title {
             font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
             font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: var(--primary);
         }
 
-        .modal-section-content {
-            color: var(--text-primary);
+        .modal-content-text {
+            color: var(--text-secondary);
             line-height: 1.6;
-        }
-
-        .modal-list {
-            list-style: none;
+            font-size: 0.95em;
         }
 
         .modal-list li {
             padding: 8px 0;
-            color: var(--text-primary);
-            border-bottom: 1px solid rgba(255, 107, 107, 0.1);
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-secondary);
         }
 
-        .modal-reward {
-            display: inline-block;
-            padding: 12px 18px;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            border-radius: 10px;
+        .modal-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
             font-weight: 700;
-            color: white;
-            margin-bottom: 24px;
         }
 
-        .modal-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 30px;
+        .reward-display {
+            font-size: 1.8em;
+            color: #fcd34d;
+            font-weight: 700;
+            margin-bottom: 12px;
         }
 
         .btn-accept {
-            flex: 1;
+            width: 100%;
             padding: 14px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
-            border: none;
-            border-radius: 10px;
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
             color: white;
-            font-weight: 700;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
+            font-weight: 700;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            margin-top: 20px;
             transition: all 0.3s;
         }
 
         .btn-accept:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
         }
 
-        .btn-close {
-            flex: 1;
-            padding: 14px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 107, 107, 0.2);
-            border-radius: 10px;
-            color: var(--text-primary);
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
+        .mission-count {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9em;
         }
 
-        .btn-close:hover {
-            background: rgba(255, 107, 107, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-
-            .header-content {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            .rank-nav {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .missions-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .container {
-                padding: 20px;
-            }
-
-            .modal-content {
-                padding: 24px;
-                max-height: 95vh;
-            }
-
-            .header {
-                padding: 16px 20px;
-            }
+        @media (max-width: 640px) {
+            .header h1 { font-size: 1.8em; }
+            .container { padding: 20px; }
+            .missions-grid { grid-template-columns: 1fr; gap: 20px; }
         }
     </style>
 </head>
@@ -472,11 +427,11 @@
     <div class="header">
         <div class="header-content">
             <div>
-                <h1>EGA RP ◆ 100 MISSIONS</h1>
-                <p class="header-subtitle">Système de missions premium</p>
+                <h1>⚔️ EGA RP - 100 MISSIONS</h1>
+                <p class="header-subtitle">Ennemis variés • Rangs F à S</p>
             </div>
             <div class="rank-nav">
-                <button class="rank-btn active" onclick="filterByRank('all')">ALL</button>
+                <button class="rank-btn active" onclick="filterByRank('all')">TOUS</button>
                 <button class="rank-btn" onclick="filterByRank('F')">F</button>
                 <button class="rank-btn" onclick="filterByRank('E')">E</button>
                 <button class="rank-btn" onclick="filterByRank('D')">D</button>
@@ -490,125 +445,152 @@
 
     <div class="container">
         <div class="filters-section">
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="🔍 Chercher une mission..." onkeyup="applyFilters()">
-            </div>
+            <label class="filter-label">🔍 Rechercher une mission</label>
+            <input type="text" class="search-box" id="searchInput" placeholder="Nom de la mission, ennemi..." onkeyup="applyFilters()">
+            
+            <label class="filter-label">🗡️ Filtrer par Ennemi</label>
             <div class="filter-group">
-                <span class="filter-label">Filtrer par ennemis:</span>
                 <button class="filter-btn active" onclick="filterByEnemy('all')">Tous</button>
-                <button class="filter-btn" onclick="filterByEnemy('Bandits')">👿 Bandits</button>
-                <button class="filter-btn" onclick="filterByEnemy('Dragons')">🐉 Dragons</button>
-                <button class="filter-btn" onclick="filterByEnemy('Lézards')">🦎 Lézards</button>
-                <button class="filter-btn" onclick="filterByEnemy('Démons')">👹 Démons</button>
+                <button class="filter-btn" onclick="filterByEnemy('Lézards')">👽 Lézards</button>
+                <button class="filter-btn" onclick="filterByEnemy('Démons')">👿 Démons</button>
                 <button class="filter-btn" onclick="filterByEnemy('Chevaliers')">⚔️ Chevaliers</button>
-                <button class="filter-btn" onclick="filterByEnemy('Cultistes')">🕯️ Cultistes</button>
-                <button class="filter-btn" onclick="filterByEnemy('Créatures')">👾 Créatures</button>
+                <button class="filter-btn" onclick="filterByEnemy('Bandits')">🏴 Bandits</button>
+                <button class="filter-btn" onclick="filterByEnemy('Dragons')">🐉 Dragons</button>
+                <button class="filter-btn" onclick="filterByEnemy('Cultistes')">👻 Cultistes</button>
+                <button class="filter-btn" onclick="filterByEnemy('Créatures')">👹 Créatures</button>
             </div>
         </div>
 
-        <div class="mission-count" id="missionCount"></div>
         <div class="missions-grid" id="missionsContainer"></div>
+        <div class="mission-count" id="missionCount"></div>
     </div>
 
     <div class="modal" id="missionModal" onclick="closeMissionModal(event)">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title" id="modalTitle">Mission</div>
-                <div class="modal-enemies" id="modalEnemies">Ennemis</div>
+        <button class="modal-close" onclick="closeMissionModal()">✕</button>
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-title" id="modalTitle"></div>
+            
+            <div class="modal-section">
+                <div class="modal-section-title">👾 Ennemis</div>
+                <div class="modal-content-text" id="modalEnemies"></div>
             </div>
 
             <div class="modal-section">
-                <div class="modal-section-title">Description</div>
-                <div class="modal-section-content" id="modalDescription">Description</div>
+                <div class="modal-section-title">📝 Description</div>
+                <div class="modal-content-text" id="modalDescription"></div>
             </div>
 
             <div class="modal-section">
-                <div class="modal-section-title">Objectif</div>
-                <div class="modal-section-content" id="modalObjective">Objectif</div>
+                <div class="modal-section-title">🎯 Objectif</div>
+                <div class="modal-content-text" id="modalObjective"></div>
             </div>
 
             <div class="modal-section">
-                <div class="modal-section-title">Défis</div>
+                <div class="modal-section-title">⚠️ Défis</div>
                 <ul class="modal-list" id="modalChallenges"></ul>
             </div>
 
             <div class="modal-section">
-                <div class="modal-section-title">Bonus</div>
+                <div class="modal-section-title">💎 Récompenses</div>
+                <div class="reward-display" id="modalReward"></div>
                 <ul class="modal-list" id="modalBonuses"></ul>
             </div>
 
-            <div class="modal-reward" id="modalReward">💎 0 Jewels</div>
-
-            <div class="modal-buttons">
-                <button class="btn-accept" onclick="acceptMission()">Accepter la mission</button>
-                <button class="btn-close" onclick="closeMissionModal()">Fermer</button>
-            </div>
+            <button class="btn-accept" onclick="acceptMission()">✓ ACCEPTER</button>
         </div>
     </div>
 
     <script>
         const missions = {
             F: [
-                { title: 'Escorte de Caravane', enemies: ['Bandits Mineurs'], description: 'Escorter une caravane marchande à travers un territoire dangereux.', objective: 'Caravane en sécurité', challenges: ['Embuscades'], reward: 250, bonuses: ['Fluidité: +100'] },
-                { title: 'Chasse au Lézard', enemies: ['Lézard Commun'], description: 'Chasser un lézard sauvage causant des dégâts.', objective: 'Lézard neutralisé', challenges: ['Rapide'], reward: 280, bonuses: ['Créature capturée: +120'] },
-                { title: 'Bandits de Route', enemies: ['Bandit Routier'], description: 'Éliminer un groupe de bandits de route.', objective: 'Bandits éliminés', challenges: ['Coordonnés'], reward: 300, bonuses: ['Route sécurisée: +150'] },
-                { title: 'Chasse au Dragon Mineur', enemies: ['Dragon Mineur'], description: 'Affronter un jeune dragon.', objective: 'Dragon défait', challenges: ['Aérien'], reward: 350, bonuses: ['Trésor dragon: +200'] },
-                { title: 'Cultistes Mineurs', enemies: ['Culte Mineur'], description: 'Disperser un culte mineur.', objective: 'Culte dispersé', challenges: ['Fanatiques'], reward: 280, bonuses: ['Sanctuaire purifié: +120'] },
-                { title: 'Créature Sauvage', enemies: ['Créature Sauvage'], description: 'Combattre une créature sauvage.', objective: 'Créature apprivoisée', challenges: ['Instinctive'], reward: 240, bonuses: ['Accordé: +100'] },
-                { title: 'Protection Villageoise', enemies: ['Créatures Nocturnes'], description: 'Protéger un village des créatures nocturnes.', objective: 'Village sauvé', challenges: ['Vagues'], reward: 320, bonuses: ['Reconnaissance: +140'] },
-                { title: 'Chasse au Trésor Mineur', enemies: ['Gardien Mineur'], description: 'Récupérer un trésor gardé par des créatures.', objective: 'Trésor obtenu', challenges: ['Énigme'], reward: 280, bonuses: ['Richesse: +120'] },
-                { title: 'Espion Débutant', enemies: ['Éclaireur'], description: 'Éliminer un éclaireur ennemi.', objective: 'Information récupérée', challenges: ['Furtif'], reward: 260, bonuses: ['Discrétion: +110'] },
-                { title: 'Quête de Remède', enemies: ['Créatures Toxiques'], description: 'Trouver un remède contre un poison.', objective: 'Remède obtenu', challenges: ['Toxicité'], reward: 290, bonuses: ['Guérison: +125'] }
+                { title: 'Chasse aux Lézards Mineurs', enemies: ['Lézards Blancs'], description: 'Éliminer des petits lézards blancs qui ravagent les cultures.', objective: 'Vaincre 10 lézards mineurs', challenges: ['Agilité rapide', 'Attaques combinées'], reward: 2200, bonuses: ['Sans blessure: +400'] },
+                { title: 'Patrouille Contre les Bandits', enemies: ['Bandits'], description: 'Patrouiller et arrêter les bandits locaux.', objective: 'Capturer 3 bandits', challenges: ['Rapides', 'Embuscades'], reward: 2500, bonuses: ['Tous vivants: +500'] },
+                { title: 'Escorte Civile Périlleuse', enemies: ['Lézards Blancs', 'Créatures'], description: 'Escorter des civils à travers zone dangereuse.', objective: 'Protéger 5 civils', challenges: ['Attaques inattendues'], reward: 2300, bonuses: ['Tous sauvés: +600'] },
+                { title: 'Collecte de Ressources', enemies: ['Créatures Mineures'], description: 'Collecter minerais tout en combattant des créatures.', objective: 'Collecter 20 minerais', challenges: ['Zone dangereuse'], reward: 2100, bonuses: ['Complet: +400'] },
+                { title: 'Défense du Village', enemies: ['Bandits', 'Lézards'], description: 'Défendre le village contre des attaquants.', objective: 'Résister 30 minutes', challenges: ['Vagues continues'], reward: 2700, bonuses: ['Sans dégâts: +700'] },
+                { title: 'Recherche de Disparu', enemies: ['Créatures Blanches'], description: 'Retrouver un disparu dans la forêt.', objective: 'Retrouver et ramener sain', challenges: ['Créatures hostiles'], reward: 2400, bonuses: ['Rapide: +500'] },
+                { title: 'Chasse aux Démons Mineurs', enemies: ['Démons Faibles'], description: 'Éliminer de jeunes démons.', objective: 'Vaincre 5 démons', challenges: ['Magie noire faible'], reward: 2600, bonuses: ['Sans magie: +600'] },
+                { title: 'Raid Bandit Mineur', enemies: ['Bandits'], description: 'Attaquer un petit repaire bandit.', objective: 'Libérer les otages', challenges: ['10 bandits'], reward: 2800, bonuses: ['Tous sauvés: +800'] },
+                { title: 'Nettoyage de Grotte', enemies: ['Créatures', 'Lézards'], description: 'Nettoyer une grotte infestée.', objective: 'Éliminer tous les habitants', challenges: ['Environnement hostile'], reward: 2350, bonuses: ['Complet: +450'] },
+                { title: 'Escorte Marchand', enemies: ['Bandits'], description: 'Protéger un marchand en route.', objective: 'Destination atteinte', challenges: ['Attaques de bandits'], reward: 2900, bonuses: ['Marchandise intacte: +700'] },
+                { title: 'Piégeur de Créatures', enemies: ['Créatures Mineures'], description: 'Capturer des créatures vivantes.', objective: 'Capturer 5 créatures', challenges: ['Doivent être vivantes'], reward: 2200, bonuses: ['Tous vivants: +600'] },
+                { title: 'Extermination Lézards', enemies: ['Lézards Blancs'], description: 'Éliminer les lézards d\'une région.', objective: 'Tuer 15 lézards', challenges: ['En groupe'], reward: 2650, bonuses: ['Rapide: +500'] },
+                { title: 'Sauvage du Mal', enemies: ['Petits Démons'], description: 'Sauver quelqu\'un sous contrôle démoniaque.', objective: 'Briser le contrôle', challenges: ['Magie sombre'], reward: 2550, bonuses: ['Sans violence: +700'] },
+                { title: 'Contrôle des Récoltes', enemies: ['Lézards', 'Créatures'], description: 'Protéger les récoltes des ravageurs.', objective: 'Sécuriser les champs', challenges: ['Nombreuses créatures'], reward: 2400, bonuses: ['100% protégé: +600'] },
+                { title: 'Traceur de Criminel', enemies: ['Bandits'], description: 'Tracer et capturer un criminel.', objective: 'Capturer vivant', challenges: ['Fugitif rapide'], reward: 2700, bonuses: ['Vivant: +800'] }
             ],
             E: [
-                { title: 'Bandits Organisés', enemies: ['Chef Bandit'], description: 'Éliminer le chef d\'un groupe de bandits.', objective: 'Chef abattu', challenges: ['Préparé'], reward: 600, bonuses: ['Trésor saisi: +300'] },
-                { title: 'Lézard Géant', enemies: ['Lézard Géant'], description: 'Affronter un lézard de taille imposante.', objective: 'Bête maîtrisée', challenges: ['Massive'], reward: 650, bonuses: ['Carapace: +320'] },
-                { title: 'Dragon de Caverne', enemies: ['Dragon de Caverne'], description: 'Affronter un dragon dans sa tanière.', objective: 'Caverne sécurisée', challenges: ['Lair', 'Venin'], reward: 750, bonuses: ['Trésor montagne: +400'] },
-                { title: 'Démon Mineur', enemies: ['Démon Inférieur'], description: 'Affronter un démon de faible rang.', objective: 'Démon renvoyé', challenges: ['Magie'], reward: 700, bonuses: ['Sortilège: +350'] },
-                { title: 'Chevalier Noir Solitaire', enemies: ['Chevalier Noir'], description: 'Affronter un chevalier noir isolé.', objective: 'Chevalier vaincu', challenges: ['Expert'], reward: 680, bonuses: ['Armure: +330'] },
-                { title: 'Culte Organisé', enemies: ['Chef Cultiste'], description: 'Détruire un culte organisé.', objective: 'Culte éradiqué', challenges: ['Rituels'], reward: 620, bonuses: ['Sanctuaire purifié: +310'] },
-                { title: 'Créature Évoluée', enemies: ['Créature Évoluée'], description: 'Combattre une créature devenue intelligente.', objective: 'Créature neutralisée', challenges: ['Intelligente'], reward: 640, bonuses: ['Evolution stoppée: +320'] },
-                { title: 'Récupération Dangereuse', enemies: ['Gardiens de Trésor'], description: 'Récupérer un artefact ancien gardé.', objective: 'Artefact en sécurité', challenges: ['Pièges'], reward: 670, bonuses: ['Connaissance: +330'] },
-                { title: 'Espionnage Avancé', enemies: ['Maître Espion'], description: 'Arrêter un réseau d\'espionnage.', objective: 'Réseau démoli', challenges: ['Coordonné'], reward: 630, bonuses: ['Secret récupéré: +310'] },
-                { title: 'Quête d\'Antidote', enemies: ['Créatures Venimeuses'], description: 'Trouver un antidote complexe.', objective: 'Antidote purifié', challenges: ['Composition'], reward: 660, bonuses: ['Immunité: +330'] }
+                { title: 'Invasion Lézards de Montagne', enemies: ['Lézards Majeurs'], description: 'Repousser une invasion de lézards.', objective: 'Vaincre 20 lézards majeurs', challenges: ['Coordonnés', 'Défenses'], reward: 3200, bonuses: ['Sans pertes: +900'] },
+                { title: 'Culte Démoniaque Mineure', enemies: ['Démons Faibles', 'Cultistes'], description: 'Arrêter un petit culte démoniaque.', objective: 'Capturer les cultistes', challenges: ['Rituels', 'Magie'], reward: 3400, bonuses: ['Tous capturés: +1000'] },
+                { title: 'Chevaliers Corrompus', enemies: ['Chevaliers Noirs'], description: 'Affronter des chevaliers corrompus.', objective: 'Vaincre 5 chevaliers', challenges: ['Armure lourde', 'Techniques'], reward: 3600, bonuses: ['Sans aide: +1100'] },
+                { title: 'Repaire Bandit Majeur', enemies: ['Bandits', 'Chef Bandit'], description: 'Détruire un repaire bandit établi.', objective: 'Capturer le chef', challenges: ['20+ bandits'], reward: 3800, bonuses: ['Chef capturé: +1200'] },
+                { title: 'Créature Mutante', enemies: ['Créature Mutante'], description: 'Tracer et éliminer une créature mutante.', objective: 'Éliminer la menace', challenges: ['Imprévisible', 'Forte'], reward: 3500, bonuses: ['Rapide: +1000'] },
+                { title: 'Démons Multiples', enemies: ['Démons Normaux'], description: 'Combattre plusieurs démons simultanément.', objective: 'Vaincre 8 démons', challenges: ['Magie coordonnée'], reward: 3300, bonuses: ['Sans dégâts: +1000'] },
+                { title: 'Cavalerie Chevalier', enemies: ['Chevaliers'], description: 'Affronter une escouade de chevaliers.', objective: 'Vaincre 7 chevaliers', challenges: ['Formation tactique'], reward: 3700, bonuses: ['Formation brisée: +1100'] },
+                { title: 'Marché Noir Bandit', enemies: ['Bandits Organisés'], description: 'Infiltrer et détruire un marché noir.', objective: 'Arrêter les trafiquants', challenges: ['Infiltration', 'Nombre'], reward: 3650, bonuses: ['Butin saisi: +1300'] },
+                { title: 'Tempête de Lézards', enemies: ['Lézards en Essaim'], description: 'Survivre à une tempête de lézards.', objective: 'Tenir 1 heure', challenges: ['Centaines de créatures'], reward: 3900, bonuses: ['Sans blessure majeure: +1200'] },
+                { title: 'Chasse Dragon Juvénile', enemies: ['Dragon Juvénile'], description: 'Chasser un jeune dragon.', objective: 'Vaincre le dragon', challenges: ['Puissant', 'Aérien'], reward: 4200, bonuses: ['Rapide: +1500'] },
+                { title: 'Siège Forteresse Bandits', enemies: ['Bandits Fortifiés'], description: 'Assiéger une forteresse bandit.', objective: 'Prendre la forteresse', challenges: ['Défenses', '30+ bandits'], reward: 4100, bonuses: ['Rapide: +1400'] },
+                { title: 'Rituel Sombre Cultistes', enemies: ['Cultistes', 'Démons'], description: 'Interrompre un rituel sombre.', objective: 'Stopper avant la fin', challenges: ['Temps limité', 'Magie'], reward: 3950, bonuses: ['Avant invocation: +1600'] },
+                { title: 'Arena Chevaliers', enemies: ['Chevaliers d\'Élite'], description: 'Combattre des chevaliers d\'élite à l\'arène.', objective: 'Remporter 5 duels', challenges: ['Puissants', 'Expérimentés'], reward: 4300, bonuses: ['Sans blessure: +1500'] },
+                { title: 'Guérilla Bandit', enemies: ['Bandits Mobiles'], description: 'Combattre une guérilla bandit.', objective: 'Éliminer 15 bandits', challenges: ['Tactiques', 'Mobilité'], reward: 3850, bonuses: ['Rapide: +1100'] },
+                { title: 'Mutants Lézards', enemies: ['Lézards Mutants'], description: 'Combattre des lézards mutants.', objective: 'Vaincre 10 mutants', challenges: ['Évolution', 'Force'], reward: 3750, bonuses: ['Tous étudiés: +950'] }
             ],
             D: [
-                { title: 'Seigneur Bandit', enemies: ['Seigneur des Bandits'], description: 'Affronter le seigneur d\'une bande organisée.', objective: 'Seigneur abattu', challenges: ['Armée'], reward: 1100, bonuses: ['Domination brisée: +500'] },
-                { title: 'Lézard Ancien', enemies: ['Lézard Ancien'], description: 'Affronter un lézard ancien et puissant.', objective: 'Ère ancienne fermée', challenges: ['Primitif'], reward: 1150, bonuses: ['Sagesse antique: +550'] },
-                { title: 'Dragon Antique', enemies: ['Dragon Antique'], description: 'Affronter un dragon vivant depuis des siècles.', objective: 'Époque révolue', challenges: ['Lair infernal', 'Vieille magie'], reward: 1300, bonuses: ['Trésor légendaire: +650'] },
-                { title: 'Démon Majeur', enemies: ['Démon Majeur'], description: 'Affronter un démon de haut pouvoir.', objective: 'Démon banni', challenges: ['Magie ancienne'], reward: 1250, bonuses: ['Artefact démoniaque: +600'] },
-                { title: 'Groupe de Chevaliers', enemies: ['Ordre des Chevaliers'], description: 'Affronter un ordre entier de chevaliers.', objective: 'Ordre vaincu', challenges: ['Coordination', 'Discipline'], reward: 1200, bonuses: ['Honneur acquis: +580'] },
-                { title: 'Culte Puissant', enemies: ['Grand Prêtre Culte'], description: 'Détruire un culte très influent.', objective: 'Culte détruit', challenges: ['Pouvoir mystique'], reward: 1100, bonuses: ['Illumination: +500'] },
-                { title: 'Créature Légendaire', enemies: ['Créature Légendaire'], description: 'Combattre une créature légendaire.', objective: 'Légendaire maîtrisé', challenges: ['Au-delà du normal'], reward: 1180, bonuses: ['Pouvoir légendaire: +570'] },
-                { title: 'Récupération d\'Artefact', enemies: ['Gardien Artefact'], description: 'Récupérer un artefact très puissant.', objective: 'Artefact sécurisé', challenges: ['Protection magique'], reward: 1220, bonuses: ['Pouvoir acquis: +600'] },
-                { title: 'Démantèlement de Réseau', enemies: ['Maître du Réseau'], description: 'Démanteler un réseau d\'espions massif.', objective: 'Réseau détruit', challenges: ['Complexe'], reward: 1130, bonuses: ['Sécurité: +540'] },
-                { title: 'Quête du Remède Ultime', enemies: ['Créatures Mythiques'], description: 'Créer un remède contre un poison ancien.', objective: 'Poison vaincu', challenges: ['Ingrédients rares'], reward: 1170, bonuses: ['Médecine: +560'] }
+                { title: 'Invasion Démoniaque Régionale', enemies: ['Démons Puissants', 'Cultistes'], description: 'Repousser une invasion démoniaque.', objective: 'Fermer les portails', challenges: ['50+ démons', 'Portails magiques'], reward: 4800, bonuses: ['Tous fermés: +1500'] },
+                { title: 'Roi des Lézards', enemies: ['Lézards Alpha', 'Roi Lézard'], description: 'Affronter le roi lézard.', objective: 'Vaincre le roi', challenges: ['Ultra puissant', 'Essaim'], reward: 5200, bonuses: ['Sans aide: +1800'] },
+                { title: 'Chevalier Légendaire', enemies: ['Chevalier Légendaire'], description: 'Affronter un chevalier légendaire.', objective: 'Vaincre le chevalier', challenges: ['Puissance extrême'], reward: 5500, bonuses: ['Rapide: +2000'] },
+                { title: 'Seigneur Bandit', enemies: ['Bandits d\'Élite', 'Seigneur'], description: 'Renverser un seigneur bandit.', objective: 'Capturer le seigneur', challenges: ['100+ bandits', 'Stratégie'], reward: 5800, bonuses: ['Vif: +2200'] },
+                { title: 'Dragon de Caverne', enemies: ['Dragon Adulte'], description: 'Affronter un dragon des cavernes.', objective: 'Vaincre le dragon', challenges: ['Cracheur de feu'], reward: 6200, bonuses: ['Écailles intactes: +2500'] },
+                { title: 'Convergence Démoniaque', enemies: ['Démons Multiples', 'Maître Démon'], description: 'Arrêter une convergence démoniaque.', objective: 'Sceller la convergence', challenges: ['Nombreux portails'], reward: 5950, bonuses: ['Sans catastrophe: +2000'] },
+                { title: 'Légion Chevalière', enemies: ['Chevaliers Nombreux'], description: 'Combattre une légion de chevaliers.', objective: 'Vaincre 50 chevaliers', challenges: ['Disciplinés', 'Nombreux'], reward: 6100, bonuses: ['Tactique brisée: +2100'] },
+                { title: 'Empire Bandit', enemies: ['Organisation Bandit Complète'], description: 'Démanteler un empire bandit.', objective: 'Éliminer toute l\'organisation', challenges: ['Ramifications'], reward: 6400, bonuses: ['Complet: +2300'] },
+                { title: 'Apocalypse Lézards', enemies: ['Tous les Lézards'], description: 'Arrêter une apocalypse lézarde.', objective: 'Bloquer l\'essaim final', challenges: ['Milliers de créatures'], reward: 6600, bonuses: ['Complète victoire: +2500'] },
+                { title: 'Dragons en Conflit', enemies: ['Dragons Multiples'], description: 'Gérer un conflit de dragons.', objective: 'Les séparer ou vaincre', challenges: ['2-3 dragons', 'Territoire'], reward: 6900, bonuses: ['Sans destruction: +2600'] },
+                { title: 'Culte du Chaos', enemies: ['Cultistes Puissants', 'Dieu Mineur'], description: 'Arrêter un culte du chaos.', objective: 'Sceller le dieu', challenges: ['Magie extrême'], reward: 6750, bonuses: ['Avant manifestation: +2400'] },
+                { title: 'Croisade Chevalière', enemies: ['Chevaliers Sacrés'], description: 'Arrêter une croisade chevalière.', objective: 'Défendre le territoire', challenges: ['Armée nombreuse'], reward: 6300, bonuses: ['Sans terre perdue: +2200'] },
+                { title: 'Cartel Bandit Continental', enemies: ['Seigneurs Bandits'], description: 'Affronter un cartel bandit continental.', objective: 'Capturer tous les seigneurs', challenges: ['Nombreux territoires'], reward: 6850, bonuses: ['Tous capturés: +2300'] },
+                { title: 'Mutation Lézarde Extrême', enemies: ['Super Lézard Mutant'], description: 'Combattre un lézard mutant extrême.', objective: 'Éliminer la menace', challenges: ['Imprévisible', 'Puissant'], reward: 6500, bonuses: ['Étudié complètement: +2000'] },
+                { title: 'Gouffre Démoniaque', enemies: ['Armée Démoniaque'], description: 'Descendre combattre au gouffre démoniaque.', objective: 'Atteindre le cœur', challenges: ['Lave', 'Hordes'], reward: 7100, bonuses: ['Cœur fermé: +2700'] }
             ],
             C: [
-                { title: 'Empereur des Bandits', enemies: ['Empereur Bandit'], description: 'Affronter l\'empereur des bandits.', objective: 'Empereur abattu', challenges: ['Empire entier'], reward: 1950, bonuses: ['Justice: +800'] },
-                { title: 'Lézard Primordial', enemies: ['Lézard Primordial'], description: 'Affronter le lézard primordial.', objective: 'Espèce subjuguée', challenges: ['Source de vie'], reward: 2000, bonuses: ['Domination génétique: +850'] },
-                { title: 'Dragon Cosmique', enemies: ['Dragon Cosmique'], description: 'Affronter un dragon cosmique.', objective: 'Cosmique vaincu', challenges: ['Pouvoir stellaire'], reward: 2150, bonuses: ['Essence cosmique: +950'] },
-                { title: 'Démon Seigneur', enemies: ['Seigneur Démon'], description: 'Affronter un seigneur démoniaque.', objective: 'Démon banni à jamais', challenges: ['Souveraineté infernale'], reward: 2100, bonuses: ['Trône démoniaque: +900'] },
-                { title: 'Champion des Chevaliers', enemies: ['Champion Chevalier'], description: 'Affronter le champion absolu des chevaliers.', objective: 'Champion vaincu', challenges: ['Perfection chevaleresque'], reward: 2050, bonuses: ['Honneur suprême: +850'] },
-                { title: 'Culte Ancien', enemies: ['Entité Cultiste'], description: 'Détruire un culte vieux de millénaires.', objective: 'Culte obsolète', challenges: ['Immortel'], reward: 1950, bonuses: ['Éternité brisée: +800'] },
-                { title: 'Créature Infinie', enemies: ['Créature Infinie'], description: 'Combattre une créature sans fin.', objective: 'Infini limité', challenges: ['Auto-régénération'], reward: 2080, bonuses: ['Limite établie: +870'] },
-                { title: 'Artefact Ancien Très Puissant', enemies: ['Gardien Suprême'], description: 'Récupérer un artefact du début des temps.', objective: 'Artefact primordial sécurisé', challenges: ['Magie ancestrale'], reward: 2120, bonuses: ['Sagesse primordiale: +920'] },
-                { title: 'Réseau Mondial', enemies: ['Chef Mondial Réseau'], description: 'Détruire un réseau d\'espionnage mondial.', objective: 'Réseau mondial anéanti', challenges: ['Interconnecté'], reward: 2000, bonuses: ['Paix mondiale: +850'] },
-                { title: 'Remède Cosmique', enemies: ['Créatures Cosmiques'], description: 'Créer un remède contre une maladie cosmique.', objective: 'Univers guéri', challenges: ['Au-delà de la science'], reward: 2070, bonuses: ['Médecine cosmique: +900'] }
+                { title: 'Guerre des Royaumes Lézards', enemies: ['Toute la Race Lézarde'], description: 'Participer à une guerre entre royaumes lézards.', objective: 'Victoire stratégique', challenges: ['Milliers de lézards'], reward: 7500, bonuses: ['Paix obtenue: +2800'] },
+                { title: 'Pricesse Démon', enemies: ['Princesse Démoniaque'], description: 'Affronter une princesse démoniaque.', objective: 'La capturer ou vaincre', challenges: ['Magie transcendante'], reward: 8200, bonuses: ['Vivante: +3000'] },
+                { title: 'Empereur Chevalier Immortel', enemies: ['Empereur Chevalier'], description: 'Affronter l\'empereur chevalier immortel.', objective: 'Vaincre l\'empereur', challenges: ['Immortalité', 'Puissance'], reward: 8600, bonuses: ['Sans aide divine: +3300'] },
+                { title: 'Triumvirat Bandit', enemies: ['Trois Seigneurs Suprêmes'], description: 'Abattre le triumvirat bandit.', objective: 'Les trois seigneurs', challenges: ['Coordonnés', 'Surpuissants'], reward: 8900, bonuses: ['Simultanément: +3500'] },
+                { title: 'Roi Dragon Primordial', enemies: ['Dragon Primordial'], description: 'Affronter le roi dragon primordial.', objective: 'Vaincre le roi', challenges: ['Force absolue'], reward: 9500, bonuses: ['Rapide: +3800'] },
+                { title: 'Apocalypse Démoniaque', enemies: ['Armée Démoniaque Totale'], description: 'Arrêter l\'apocalypse démoniaque.', objective: 'Sceller tous les mondes', challenges: ['Chaos absolu'], reward: 9200, bonuses: ['Sans monde détruit: +3500'] },
+                { title: 'Croisade Éternelle', enemies: ['Légions Chevalières Éternelles'], description: 'Arrêter une croisade chevalière éternelle.', objective: 'Libérer les terres', challenges: ['Armées infinies'], reward: 8800, bonuses: ['Paix établie: +3200'] },
+                { title: 'Extinction Bandit', enemies: ['Tous les Bandits du Monde'], description: 'Éliminer complètement les bandits.', objective: 'Extinction totale', challenges: ['Monde entier'], reward: 9100, bonuses: ['Complètement: +3600'] },
+                { title: 'Apocalypse Lézarde Totale', enemies: ['Essence Lézarde Primaire'], description: 'Arrêter l\'apocalypse lézarde finale.', objective: 'Sceller l\'essence', challenges: ['Force primordiale'], reward: 9400, bonuses: ['Pas de mutants: +3700'] },
+                { title: 'Convergence Universelle Dragons', enemies: ['Tous les Dragons'], description: 'Arrêter une convergence de tous les dragons.', objective: 'Les disperser/vaincre', challenges: ['Tous les dragons existent'], reward: 10000, bonuses: ['Monde sauvé: +4000'] },
+                { title: 'Prophétie du Chaos', enemies: ['Prophète Démoniaque', 'Armée Infernale'], description: 'Arrêter une prophétie du chaos.', objective: 'Tuer le prophète', challenges: ['Prophétie incarnée'], reward: 9600, bonuses: ['Avant la fin: +3800'] },
+                { title: 'Domination Chevalière Totale', enemies: ['Toute l\'Ordre Chevalière'], description: 'Arrêter la domination chevalière.', objective: 'Ordre anéanti ou réformé', challenges: ['Tous les chevaliers'], reward: 9300, bonuses: ['Sans massacre: +3500'] },
+                { title: 'Mafia Bandit Quantique', enemies: ['Seigneurs Quantiques'], description: 'Affronter une mafia bandit quantique.', objective: 'Fermer les brèches', challenges: ['Technologie ancienne'], reward: 9700, bonuses: ['Technologie récupérée: +3900'] },
+                { title: 'Essaim Lézard Cosmique', enemies: ['Lézards Cosmiques'], description: 'Combattre un essaim lézard cosmique.', objective: 'Protection du monde', challenges: ['De l\'espace'], reward: 10200, bonuses: ['Monde intact: +4200'] },
+                { title: 'Incarnation Démoniaque Suprême', enemies: ['Incarnation Démon Suprême'], description: 'Affronter l\'incarnation suprême.', objective: 'Vaincre l\'incarnation', challenges: ['Force infinie'], reward: 11000, bonuses: ['Sans monde détruit: +4500'] }
             ],
             B: [
-                { title: 'Syndic Suprême Bandits', enemies: ['Souverain Bandits'], description: 'Affronter le syndic suprême de tous les bandits.', objective: 'Syndic détruit', challenges: ['Omniscience marchande'], reward: 3200, bonuses: ['Commerce libre: +1400'] },
-                { title: 'Reine Lézarde', enemies: ['Reine Lézarde'], description: 'Affronter la reine de tous les lézards.', objective: 'Espèce soumise', challenges: ['Pondeuse infinie'], reward: 3350, bonuses: ['Évolution stoppée: +1500'] },
-                { title: 'Roi Dragon', enemies: ['Roi Dragon'], description: 'Affronter le roi de tous les dragons.', objective: 'Royauté abattue', challenges: ['Trône céleste'], reward: 3500, bonuses: ['Ciel libéré: +1600'] },
-                { title: 'Prince Démon', enemies: ['Prince du Chaos'], description: 'Affronter le prince du chaos.', objective: 'Chaos banni', challenges: ['Entropie'], reward: 3450, bonuses: ['Ordre rétabli: +1550'] },
-                { title: 'Ordre des Chevaliers Sacrés', enemies: ['Seigneur Sacré'], description: 'Vaincre l\'ordre sacré des chevaliers.', objective: 'Sacré profané', challenges: ['Sainteté incarnée'], reward: 3300, bonuses: ['Libre-arbitre: +1450'] },
-                { title: 'Culte Éternel', enemies: ['Dieu Culte'], description: 'Détruire un culte adorant un dieu.', objective: 'Dieu détruit', challenges: ['Divinité'], reward: 3250, bonuses: ['Illumination: +1400'] },
-                { title: 'Créature Absolue', enemies: ['Créature Absolue'], description: 'Combattre l\'absolue créature.', objective: 'Absolu limité', challenges: ['Perfection'], reward: 3400, bonuses: ['Perfection surpassée: +1520'] },
-                { title: 'Artefact Divin', enemies: ['Protecteur Divin'], description: 'Récupérer un artefact divin.', objective: 'Artefact divin conquis', challenges: ['Protection divine'], reward: 3420, bonuses: ['Divinité acquise: +1540'] },
-                { title: 'Conglomérat Réseau', enemies: ['Roi Réseau'], description: 'Démanteler un réseau couvrant le multivers.', objective: 'Multivers libéré', challenges: ['Multidimensionnel'], reward: 3300, bonuses: ['Réalité sécurisée: +1450'] },
-                { title: 'Remède Ultime', enemies: ['Créature de Cure'], description: 'Créer un remède pour tous les maux.', objective: 'Malédiction levée', challenges: ['Immortalité malveillante'], reward: 3380, bonuses: ['Immortalité bénéfique: +1500'] }
+                { title: 'Transcendance Lézarde', enemies: ['Lézard Transcendant'], description: 'Affronter un lézard transcendant.', objective: 'Vaincre le transcendant', challenges: ['Pouvoirs infinis'], reward: 10500, bonuses: ['Pouvoirs volés: +4000'] },
+                { title: 'Dieu Démoniaque Incarné', enemies: ['Dieu Démoniaque'], description: 'Affronter un dieu démoniaque incarné.', objective: 'Sceller/Vaincre', challenges: ['Dieu entier'], reward: 11500, bonuses: ['Sans victime humaine: +4500'] },
+                { title: 'Chevalier Cosmique', enemies: ['Chevalier Cosmique'], description: 'Affronter un chevalier des dimensions.', objective: 'Victorieux', challenges: ['Traverse les réalités'], reward: 11200, bonuses: ['Toutes réalités sauvées: +4300'] },
+                { title: 'Roi Absolu Bandit', enemies: ['Roi Bandit Absoluto'], description: 'Affronter le roi absolu des bandits.', objective: 'Victorieux', challenges: ['Pouvoir absolu'], reward: 11800, bonuses: ['Rapide: +4600'] },
+                { title: 'Dragon Supérieur', enemies: ['Dragon Supérieur'], description: 'Affronter un dragon supérieur.', objective: 'Vaincre', challenges: ['Multi-plans'], reward: 12100, bonuses: ['Sans destruction: +4800'] },
+                { title: 'Armageddon Démoniaque Cosmique', enemies: ['Légions Infernales Cosmiques'], description: 'Arrêter l\'armageddon cosmique.', objective: 'Protéger l\'univers', challenges: ['Univers en danger'], reward: 12500, bonuses: ['Univers sauvé: +5000'] },
+                { title: 'Croisade Chevalière Dimensionnelle', enemies: ['Chevaliers Dimensionnels'], description: 'Arrêter une croisade dimensionnelle.', objective: 'Worlds Safe', challenges: ['Dimensions infinies'], reward: 12300, bonuses: ['Toutes dimensions: +4900'] },
+                { title: 'Extinction Bandit Universelle', enemies: ['Bandits Universels'], description: 'Éliminer les bandits de l\'univers.', objective: 'Extinction', challenges: ['Everywhere'], reward: 12600, bonuses: ['Complet: +5100'] },
+                { title: 'Lézards Transcendants Multiples', enemies: ['Légion Lézards Transcendants'], description: 'Affronter des lézards transcendants multiples.', objective: 'Victorieux', challenges: ['Nombreux et puissants'], reward: 13000, bonuses: ['Sans pertes: +5300'] },
+                { title: 'Tous les Dragons Réunis', enemies: ['Essence Dragon Universelle'], description: 'Affronter tous les dragons réunis.', objective: 'Vaincre l\'essence', challenges: ['Omnipotence'], reward: 13500, bonuses: ['Monde épargné: +5500'] },
+                { title: 'Prophète Infini', enemies: ['Prophète Omniscient'], description: 'Affronter un prophète omniscient.', objective: 'Victorieux', challenges: ['Voit tout'], reward: 13200, bonuses: ['Destin changé: +5200'] },
+                { title: 'Maître Chevalier Éternel', enemies: ['Maitre Éternel'], description: 'Affronter le maître chevalier éternel.', objective: 'Victorieux', challenges: ['Expérience infinie'], reward: 13800, bonuses: ['Rapide: +5600'] },
+                { title: 'Seigneur Absolu Bandits', enemies: ['Seigneur Omnipotent'], description: 'Affronter le seigneur omnipotent.', objective: 'Victorieux', challenges: ['Omnipotence'], reward: 14100, bonuses: ['Pouvoirs contrôlés: +5700'] },
+                { title: 'Lézards Primordiaux', enemies: ['Essence Lézarde Primordiale'], description: 'Affronter l\'essence même des lézards.', objective: 'Victorieux', challenges: ['Création même'], reward: 14500, bonuses: ['Réalité stable: +5900'] },
+                { title: 'Dieu Dragon Suprême', enemies: ['Dragon Dieu Suprême'], description: 'Affronter le dieu dragon suprême.', objective: 'Victorieux', challenges: ['Toute puissance'], reward: 15000, bonuses: ['Univers épargné: +6000'] }
             ],
             A: [
+                { title: 'Lézard Omniscient', enemies: ['Lézard Omniscient'], description: 'Affronter un lézard qui sait tout.', objective: 'Vaincre l\'omniscience', challenges: ['Prédit chaque action'], reward: 14800, bonuses: ['Inattendu: +6000'] },
+                { title: 'Tribunal Démoniaque Suprême', enemies: ['Sept Démons Suprêmes'], description: 'Affronter le tribunal démoniaque.', objective: 'Tous vaincus', challenges: ['Coordinés parfaitement'], reward: 15500, bonuses: ['Sans alliance: +6500'] },
+                { title: 'Légion Chevalière Eternelle', enemies: ['Armée Chevalière Infinie'], description: 'Affronter l\'armée chevalière éternelle.', objective: 'Armée arrêtée', challenges: ['Se régénère'], reward: 15200, bonuses: ['Source détruite: +6200'] },
                 { title: 'Conglomérat Bandit Cosmique', enemies: ['Tous les Bandits Cosmiques'], description: 'Affronter le conglomérat bandit cosmique.', objective: 'Conglomérat détruit', challenges: ['Dimensions infinies'], reward: 15800, bonuses: ['Tous niveaux: +6600'] },
                 { title: 'Dragon Éternel', enemies: ['Dragon Éternel'], description: 'Affronter un dragon éternel.', objective: 'Vaincre l\'éternité', challenges: ['Ne meurt jamais'], reward: 16200, bonuses: ['Piégé pour toujours: +6800'] },
                 { title: 'Apocalypse Ultime Démoniaque', enemies: ['Forces Infernales Totales'], description: 'Arrêter l\'apocalypse ultime.', objective: 'Univers sauvé', challenges: ['Fin des temps'], reward: 16500, bonuses: ['Nouvel âge: +7000'] },
